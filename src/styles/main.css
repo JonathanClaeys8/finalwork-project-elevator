@@ -7,89 +7,97 @@
 
 body,
 html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    background-color: black;
-    font-family: "DynaPuff";
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  font-family: "DynaPuff";
 }
 
 
 
- /*///// VOLUME //////*/
+/*///// VOLUME //////*/
 
 
 
 
 
- 
+
 
 
 
 
 /*///// HOME //////*/
 
+#info-page {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  height: auto;
+  z-index: 500;
+}
 
-    #background-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
+#info-page img {
+  width: 60px;
+}
 
-    #bg-image-home, #bg-video-home {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 1s ease;
-    }
+#background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 
-    #bg-video-home {
-      opacity: 0;
-      pointer-events: none;
-    }
+}
 
-    #bg-video-home.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+#bg-image-home,
+#bg-video-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease;
+}
 
-    #bg-image-home.fade-out {
-      opacity: 0;
-    }
+#bg-video-home {
+  opacity: 0;
+  pointer-events: none;
+}
 
-    #bored-btn {
-      position: fixed;
-      bottom: 30VH;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 12px 24px;
-      background: #ff6600;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-      z-index: 10;
-      font-family: "DynaPuff";
-    }
+#bg-video-home.active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    .quote-home {
-      position: fixed;
-      bottom: 17VH;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: 24px;
-      z-index: 15;
-    }
+#bg-image-home.fade-out {
+  opacity: 0;
+}
 
+#bored-btn {
+  position: fixed;
+  bottom: 30VH;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: #ff6600;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  font-family: "DynaPuff";
+}
 
-
-
-
-
-
- 
+#quote-home {
+  position: fixed;
+  bottom: 17VH;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 24px;
+  z-index: 15;
+}

@@ -22,12 +22,12 @@ document.getElementById("bored-btn").addEventListener("click", () => {
         ease: "power2.out",
         onComplete: () => {
             document.getElementById("bored-btn").style.display = "none";
-            document.getElementsByClassName("quote-home").style.display = "none";
+            document.getElementById("quote-home").style.display = "none";
         }
     });
 
     //NEXT PAGE
     setTimeout(() => {
-        window.location.href = "../public/pages/repair.html";
+        window.location.href = "/public/pages/repair.html";
     }, 6000);
 });
