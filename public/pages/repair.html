@@ -11,17 +11,22 @@
 </head>
 
 <body>
-<div id="info-page">
-  <a href="/public/pages/repair.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
-</div>
+  <div id="info-page">
+    <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
+  </div>
 
   <div id="background-container">
-      <video id="bg-image-home" src="/src/assets/images/repair_ground_level_03.mp4" muted playsinline autoplay loop></video>
-      <video id="bg-image-home" src="/src/assets/images/repair_ground_level_02.webm" muted playsinline autoplay loop></video>
-    <video id="bg-image-home" src="/src/assets/images/repair_ground_level_01.webm" muted playsinline autoplay loop></video>
+    <video class="bg-video" src="/src/assets/images/repair_ground_level_03.mp4" muted playsinline autoplay loop></video>
+    <video id="main-video" src="/src/assets/images/repair_ground_level_02.webm" autoplay muted loop playsinline></video>
+    
+    <video class="bg-video" src="/src/assets/images/repair_ground_level_01.webm" muted playsinline autoplay loop></video>
+    
+    <div id="yellow-circle-button"></div>
   </div>
-  
-  <script src="../js/bundle.js"></script>
+
+
+  <script src="../js/repair.js"></script>
+
 </body>
 
 </html>

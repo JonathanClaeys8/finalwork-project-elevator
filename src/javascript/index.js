@@ -2,10 +2,7 @@ import { gsap } from "gsap";
 
 
 
-
-
 //BORED BUTTON
-
 document.getElementById("bored-btn").addEventListener("click", () => {
     const bgImage = document.getElementById("bg-image-home");
     const bgVideo = document.getElementById("bg-video-home");
