@@ -142,4 +142,66 @@ html {
   pointer-events: none; 
 }
 
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.top-video {
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 9999;
+}
+
+
+
+/* DRAG */
+.video-button {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  cursor: grab;
+  z-index: 10;
+}
+
+.drop-zone {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  pointer-events: none;
+  border-radius: 50%; 
+  /* See zone : */
+  /* border: 2px dashed #ff00c8;
+  background-color: rgba(255, 0, 162, 0.2); */
+}
+
+
+
+#main-video {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+#main-video.fade-out {
+  opacity: 0;
+}
