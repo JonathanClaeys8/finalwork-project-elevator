@@ -5,6 +5,19 @@
   src: url("../assets/fonts/DynaPuff/DynaPuff-Regular.ttf");
 }
 
+@font-face {
+  font-family: "DynaPuff-bold";
+  src: url("../assets/fonts/DynaPuff/DynaPuff-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+
+
+
 body,
 html {
   margin: 0;
@@ -78,18 +91,31 @@ html {
 
 #bored-btn {
   position: fixed;
-  bottom: 30VH;
+  bottom: 22VH;
   left: 50%;
   transform: translateX(-50%);
-  padding: 12px 24px;
-  background: #ff6600;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
   z-index: 10;
-  font-family: "DynaPuff";
+  padding: 38px 100px;
+    font-size: 18px;
+    background-color: #fe6d53;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "DynaPuff-bold";
+    box-shadow: 0px 5px white;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.completion-overlay button:hover, #enter-elevator:hover, #bored-btn:hover {
+  padding: 38px 80px;
+  font-size: 18px;
+  background-color: #f33311;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 20px;
+  transition: 0.6s;
 }
 
 #quote-home {
@@ -120,27 +146,26 @@ html {
   z-index: 0;
 }
 
-#yellow-circle-button {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: yellow;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  pointer-events: auto;
-  cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-}
-
 .bg-video {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  pointer-events: none; 
+  pointer-events: none;
 }
+
+#transition-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; 
+  display: none; 
+}
+
 
 #background-container {
   position: fixed;
@@ -163,7 +188,7 @@ html {
 }
 
 .top-video {
-   position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -189,13 +214,11 @@ html {
   width: 35px;
   height: 35px;
   pointer-events: none;
-  border-radius: 50%; 
+  border-radius: 50%;
   /* See zone : */
   /* border: 2px dashed #ff00c8;
   background-color: rgba(255, 0, 162, 0.2); */
 }
-
-
 
 #main-video {
   transition: opacity 0.5s ease;
@@ -205,3 +228,241 @@ html {
 #main-video.fade-out {
   opacity: 0;
 }
+
+
+/* POP-UP */
+#completion-first-task {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 20;
+}
+
+#completion-first-task .popup-top-image {
+  position: absolute;
+  top: -57px;
+  left: 62%;
+  transform: translateX(-50%);
+  width: 107px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.completion-overlay {
+  text-align: center;
+  color: white;
+  font-family: "DynaPuff";
+  background-image: url("/src/assets/images/bg_button.png");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid rgb(255, 225, 225);
+  border-radius: 2px;
+  box-sizing: border-box;
+  background-clip: border-box;
+  width: 450px;
+
+}
+
+.check-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3px;
+}
+
+.completion-overlay img {
+  width: 35px;
+  margin-top: 6px;
+}
+
+.completion-overlay h2 {
+  font-size: 20px;
+  margin-top: 7px;
+  margin-left: 4px;
+}
+
+.completion-overlay h3 {
+  margin-bottom: 5px;
+  font-family: "Poppins";
+  font-weight: 400;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* BUTTON */
+.completion-overlay button, #enter-elevator{
+  padding: 20px 100px;
+  font-size: 18px;
+  background-color: #fe6d53;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "DynaPuff-bold";
+  box-shadow: 0px 5px white;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.completion-overlay button:hover, #enter-elevator:hover {
+  padding: 20px 80px;
+  font-size: 18px;
+  background-color: #f33311;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 20px;
+  transition: 0.6s;
+}
+
+#completion-task {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 82vh;
+  background: rgba(0, 0, 0, 0.185);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 18vh;
+
+}
+
+#zone-click {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+  z-index: 5000;
+  /* See zone */
+  /* border: 2px dashed #ff00c8;
+  background-color: rgba(255, 0, 162, 0.2); */
+}
+
+
+/* PANEL */
+.puzzle {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  z-index: 5000;
+}
+
+.inputs,
+.outputs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  z-index: 3;
+}
+
+.anchor,
+.socket {
+  width: 50px;
+  object-fit: contain;
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.socket {
+  cursor: pointer;
+}
+
+.anchor {
+  cursor: grab;
+}
+
+.anchor:active {
+  cursor: grabbing;
+}
+
+#cable-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
+#completion-second-task .panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 250px;
+  height: 400px;
+  background-color: red;
+  background-image: url("/src/assets/images/bg-panel.png");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#panel-wrapper {
+  position: absolute;
+  width: 250px;
+  height: 400px;
+  z-index: 10;
+}
+
+#completion-repair {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 10000; 
+
+}
+
+#completion-repair button{
+ padding: 40px 80px;
+
+}
+
+#completion-repair button:hover{
+ padding: 40px 60px;
+}
+
+#elevator-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 100;
+  display: none;
+}
+
+#elevator-animation video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

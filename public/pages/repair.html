@@ -11,13 +11,17 @@
 </head>
 
 <body>
+  <!----- Home icon----->
   <div id="info-page">
     <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
   </div>
 
+
+  <!----- Background animation----->
   <div id="background-container">
     <video class="bg-video" src="/src/assets/images/repair_ground_level_03.mp4" muted playsinline autoplay loop></video>
     <video id="main-video" src="/src/assets/images/reapair_elevator_light_01.webm" autoplay muted loop playsinline></video>
+    <video id="transition-video" src="/src/assets/images/Repair_final_transition.webm" autoplay muted playsinline></video>
     <video class="bg-video  top-video" src="/src/assets/images/repair_ground_level_01.webm" muted playsinline autoplay loop></video>
 
     <div id="zone-a" class="drop-zone"></div>
@@ -25,12 +29,79 @@
 
     <img src="/src/assets/images/Repair_interaction_button_01.png" class="video-button" id="image-a" />
     <img src="/src/assets/images/Repair_interaction_button_02.png" class="video-button" id="image-b" />
-
   </div>
 
 
-  <script src="../js/repair.js"></script>
+  <!----- 1. pop-up ----->
+  <div id="completion-task" style="display: none;">
+    <div class="completion-overlay">
+      <section class="check-task">
+        <img src="/src/assets/images/notice_icon.png" alt="Checked" />
+        <h2>SYSTEM NOTICE</h2>
+      </section>
+      <h3>- Before the descent can begin, two essential controls must be recovered.
+        Overexposure has worn them out, like habits pressed too many times.</h3>
+      <h3>Recover the two fallen buttons and return them to their rightful place -</h3>
+      <button id="proceed-button-task">Proceed</button>
+    </div>
+  </div>
 
+
+  <!----- 2. pop-up ----->
+  <div id="completion-first-task" style="display: none;">
+    <img id="top-image-first-task" class="popup-top-image" src="/src/assets/images/liner_pop.png" alt="Top Image" />
+    <div class="completion-overlay">
+      <section class="check-task">
+        <img src="/src/assets/images/checked_icon.png" alt="Checked" />
+        <h2>TASK 1/2 COMPLETE</h2>
+      </section>
+      <h3>- The system has flagged another error.
+        Open the cable panel and reconnect the cables -</h3>
+      <button id="proceed-button-first-task">Proceed</button>
+    </div>
+  </div>
+
+  <!----- 3. pop-up ----->
+  <div id="zone-click"></div>
+  <div id="completion-second-task" style="display: none;">
+    <div id="panel-wrapper">
+      <div class="panel">
+        <div class="outputs">
+          <img src="/src/assets/images/socket-yellow.png" class="socket" id="socket-yellow" draggable="false" />
+          <img src="/src/assets/images/socket-blue.png" class="socket" id="socket-blue" draggable="false" />
+          <img src="/src/assets/images/socket-red.png" class="socket" id="socket-red" draggable="false" />
+        </div>
+
+        <svg id="cable-layer">
+          <line id="cable-yellow" stroke="#FEC34C" stroke-width="5" visibility="hidden" />
+
+          <line id="cable-blue" stroke="#246DA3" stroke-width="5" visibility="hidden" />
+          <line id="cable-red" stroke="#FF3E3E" stroke-width="5" visibility="hidden" />
+        </svg>
+
+        <div class="inputs">
+          <img src="/src/assets/images/anchor-yellow.png" class="anchor" id="anchor-yellow" draggable="false" />
+          <img src="/src/assets/images/anchor-blue.png" class="anchor" id="anchor-blue" draggable="false" />
+          <img src="/src/assets/images/anchor-red.png" class="anchor" id="anchor-red" draggable="false" />
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!----- 4. pop-up ----->
+  <div id="completion-repair">
+      <button id="enter-elevator">Enter elevator</button>
+  </div>
+
+<!-- Outro -->
+<div id="elevator-animation">
+  <video id="elevator-video" src="/src/assets/images/Repair_zoom_elevator.mp4" playsinline muted></video>
+</div>
+
+
+
+  <script src="../js/repair.js"></script>
 </body>
 
 </html>
