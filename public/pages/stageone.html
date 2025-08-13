@@ -11,11 +11,44 @@
 </head>
 
 <body>
+  <!----- Home icon----->
+  <div id="info-page">
+    <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
+  </div>
 
-<h1>testing</h1>
+
+  <!----- Background animation----->
+<div id="background-container"> 
+    <video class="bg-video" id="stage-one-second" src="/src/assets/images/Stage_01_Elevator_02.mp4" muted playsinline></video>
+    <video class="bg-video" id="stage-one-first" src="/src/assets/images/Stage_01_Elevator_01.mp4" muted playsinline autoplay loop></video>
+    <video class="bg-video" id="first-scene" src="/src/assets/images/Scene_01_01.mp4" muted playsinline style="display:none;"></video>
+    <video class="bg-video" id="second-scene" src="/src/assets/images/Scene_01_02.mp4" muted playsinline loop style="display:none;"></video> 
+    <video class="bg-video" id="close-doors" src="/src/assets/images/closing-doors.webm" muted playsinline style="display:none;"></video>
+</div>
 
 
-  <script src="../js/repair.js"></script>
+  <!----- 1. Zone ----->
+  <div id="floor-option-wrapper">
+    <button id="floor-option-btn"></button>
+  </div>
+
+  <!----- 2. Pop-up ----->
+  <div class="exit-wrapper">
+  <button id="exit-elevator" style="display:none;">Exit Elevator</button>
+  </div>
+
+  <!-- Section scroller -->
+<section id="scroller" style="display:none;">
+  <div class="card"><img src="/src/assets/images/Post_02.png" alt="Post 1"></div>
+  <div class="card"><img src="/src/assets/images/Post_02.png" alt="Post 2"></div>
+  <div class="card"><img src="/src/assets/images/Post_02.png" alt="Post 1"></div>
+  <div class="card"><img src="/src/assets/images/Post_02.png" alt="Post 2"></div>
+  <div class="card"><img src="/src/assets/images/Post_02.png" alt="Post 1"></div>
+  <div class="card"><img src="/src/assets/images/Post_02.png" alt="Post 2"></div>
+</section>
+
+
+  <script src="../js/stageone.js"></script>
 </body>
 
 </html>

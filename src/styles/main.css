@@ -134,6 +134,9 @@ html {
 
 
 
+
+
+
 /*///// REPAIR //////*/
 
 #main-video {
@@ -165,7 +168,6 @@ html {
   z-index: 1; 
   display: none; 
 }
-
 
 #background-container {
   position: fixed;
@@ -296,7 +298,7 @@ html {
 }
 
 /* BUTTON */
-.completion-overlay button, #enter-elevator{
+.completion-overlay button, #enter-elevator  {
   padding: 20px 100px;
   font-size: 18px;
   background-color: #fe6d53;
@@ -454,6 +456,99 @@ html {
   object-fit: cover;
 }
 
+
+
+
+
+
+
+
+
+
+/*///// REPAIR //////*/
+
+
+#floor-option-btn {
+  position: absolute;
+  width: 90px;
+  height: 170px;
+  cursor: pointer;
+  z-index: 666;
+  z-index: 5000;
+  border: 0px dashed #ff00c8;
+  background-color: rgba(255, 0, 162, 0);
+  /* See zone */
+  /* border: 2px dashed #ff00c8;
+  background-color: rgba(255, 0, 162, 0.2); */
+}
+
+.exit-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#exit-elevator {
+  padding: 40px 100px;
+  font-size: 18px;
+  background-color: #fe6d53;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "DynaPuff-bold";
+  box-shadow: 0px 5px white;
+  margin-bottom: 20px;
+  transition: transform 0.3s, background-color 0.3s, border-radius 0.3s;
+  transform-origin: center center; 
+}
+
+#exit-elevator:hover {
+  transform: scale(1.1);
+  background-color: #f33311;
+  border-radius: 20px;
+}
+
+
+/*  SCROLLER  */
+#scroller {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 195px;
+  height: 342px;
+  overflow-y: auto;
+  border-radius: 16px 17px 0px 0px;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  z-index: 8000; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#scroller::-webkit-scrollbar {
+  display: none;
+}
+
+#scroller .card {
+  width: 100%;
+  height: 342px;
+  scroll-snap-align: start;
+}
+
+#scroller .card:last-child {
+  margin-bottom: 50px;
+}
+
+
+#scroller .card img {
+     width: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    display: block;
+}
 
 
 
