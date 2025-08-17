@@ -12,7 +12,7 @@ import {
 
 gsap.registerPlugin(Draggable, ScrollTrigger);
 
-// POSITIONS RELATIVES EN % //////////////////////////////////////////
+// POSITIONS RELATIVES IN % //////////////////////////////////////////
 const RELATIVE_POSITIONS = {
     floorOptionBtn: {
         x: 0.76,
@@ -28,7 +28,7 @@ const RELATIVE_POSITIONS = {
     }
 };
 
-// MISE À JOUR DES POSITIONS /////////////////////////////////////////
+// UPDATE POSITIONS /////////////////////////////////////////
 function updatePositions() {
     const video = document.getElementById("stage-one-first");
     const floorButton = document.getElementById("floor-option-btn");
@@ -83,24 +83,19 @@ function initScroller() {
             end: "bottom center",
             onEnter: () => {
                 if (index === cards.length - 1) {
-                    // Suppression du setTimeout, lancement immédiat
 
                     const closeDoors = document.getElementById("close-doors");
 
                     if (closeDoors) {
-                        console.log("▶ Lecture close-doors");
-
-                        // Animation de fondu du scroller
                         gsap.to(scroller, {
                             opacity: 0,
                             duration: 1,
                             ease: "power2.out",
                             onComplete: () => {
-                                scroller.style.display = "none"; // On le cache après le fondu
+                                scroller.style.display = "none";
                             }
                         });
-
-                        // Affichage de la vidéo close-doors au-dessus
+                        // CSS ADJUSTMENTS
                         closeDoors.style.display = "block";
                         closeDoors.style.position = "fixed";
                         closeDoors.style.top = "0";
