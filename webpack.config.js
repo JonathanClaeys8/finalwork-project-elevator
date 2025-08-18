@@ -5,7 +5,9 @@ module.exports = {
     index: "./src/javascript/index.js",
     repair: "./src/javascript/components/repair.js",
     stageone: "./src/javascript/components/stageone.js",
-    stagetwo: "./src/javascript/components/stagetwo.js"
+    stagetwo: "./src/javascript/components/stagetwo.js",
+    stagetree: "./src/javascript/components/stagetree.js",
+    stagefour: "./src/javascript/components/stagefour.js",
   },
   output: {
     path: path.resolve(__dirname, "public/js"),

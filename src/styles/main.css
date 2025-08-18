@@ -96,19 +96,21 @@ html {
   transform: translateX(-50%);
   z-index: 10;
   padding: 38px 100px;
-    font-size: 18px;
-    background-color: #fe6d53;
-    color: white;
-    border: 1.5px solid white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: "DynaPuff-bold";
-    box-shadow: 0px 5px white;
-    margin-bottom: 20px;
-    transition: 0.3s;
+  font-size: 18px;
+  background-color: #fe6d53;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "DynaPuff-bold";
+  box-shadow: 0px 5px white;
+  margin-bottom: 20px;
+  transition: 0.3s;
 }
 
-.completion-overlay button:hover, #enter-elevator:hover, #bored-btn:hover {
+.completion-overlay button:hover,
+#enter-elevator:hover,
+#bored-btn:hover {
   padding: 38px 80px;
   font-size: 18px;
   background-color: #f33311;
@@ -165,8 +167,8 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1; 
-  display: none; 
+  z-index: 1;
+  display: none;
 }
 
 #background-container {
@@ -298,7 +300,8 @@ html {
 }
 
 /* BUTTON */
-.completion-overlay button, #enter-elevator  {
+.completion-overlay button,
+#enter-elevator {
   padding: 20px 100px;
   font-size: 18px;
   background-color: #fe6d53;
@@ -312,7 +315,8 @@ html {
   transition: 0.3s;
 }
 
-.completion-overlay button:hover, #enter-elevator:hover {
+.completion-overlay button:hover,
+#enter-elevator:hover {
   padding: 20px 80px;
   font-size: 18px;
   background-color: #f33311;
@@ -426,17 +430,17 @@ html {
   position: absolute;
   transform: translate(-50%, -50%);
   display: none;
-  z-index: 10000; 
+  z-index: 10000;
 
 }
 
-#completion-repair button{
- padding: 40px 80px;
+#completion-repair button {
+  padding: 40px 80px;
 
 }
 
-#completion-repair button:hover{
- padding: 40px 60px;
+#completion-repair button:hover {
+  padding: 40px 60px;
 }
 
 #elevator-animation {
@@ -501,7 +505,7 @@ html {
   box-shadow: 0px 5px white;
   margin-bottom: 20px;
   transition: transform 0.3s, background-color 0.3s, border-radius 0.3s;
-  transform-origin: center center; 
+  transform-origin: center center;
 }
 
 #exit-elevator:hover {
@@ -523,7 +527,7 @@ html {
   border-radius: 16px 17px 0px 0px;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  z-index: 8000; 
+  z-index: 8000;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -544,38 +548,38 @@ html {
 
 
 #scroller .card img {
-     width: 100%;
-    object-fit: cover; 
-    object-position: center; 
-    display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 
 
 
 .video-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 #stage-two-scene,
 #hand-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #stage-two-scene {
-    z-index: 9000;
+  z-index: 9000;
 }
 
 #hand-animation {
-    z-index: 10000; 
-    pointer-events: none; 
+  z-index: 10000;
+  pointer-events: none;
 }
 
 #game-timer {
@@ -601,10 +605,11 @@ html {
   cursor: pointer;
 }
 
-#game-timer, #click-zone {
+#game-timer,
+#click-zone {
   position: absolute;
   z-index: 1000;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
 
 #game-timer {
@@ -616,9 +621,9 @@ html {
 #click-zone {
   width: 140px;
   height: 290px;
-  background: rgba(255, 0, 0, 0); 
+  background: rgba(255, 0, 0, 0);
   /* background: rgba(255, 0, 0, 0.3);  */
- transform: rotate(58deg);
+  transform: rotate(58deg);
 }
 
 
@@ -628,28 +633,28 @@ html {
 #exit-elevator,
 #game-timer,
 #click-zone {
-    position: absolute;
-    z-index: 1000;
+  position: absolute;
+  z-index: 1000;
 }
 
 #game-timer,
 #click-zone,
 #close-doors {
-    display: none;
+  display: none;
 }
 
 #close-doors {
-    display: none;           
-    position: fixed;          
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 10000;          
+  display: none;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 10000;
 }
 
 #close-doors.active {
-    display: block;         
+  display: block;
 }
 
 
@@ -657,7 +662,21 @@ html {
 
 
 
+#popup-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
+  pointer-events: none;
+}
 
-
-
+.popup-img {
+  position: absolute;
+  width: 350px;
+  cursor: pointer;
+  z-index: 6000;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}

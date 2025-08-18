@@ -1,5 +1,3 @@
-console.log("Stageone.js:");
-
 import {
     gsap
 } from "gsap";
