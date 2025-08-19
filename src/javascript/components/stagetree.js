@@ -128,7 +128,7 @@ function createPopup(delay = 0) {
     img.addEventListener("click", () => {
         clickCount++;
         img.remove();
-        if (clickCount >= 4) {
+        if (clickCount >= 8) {
             console.log("clicks!");
             triggerNextStage();
         } else {

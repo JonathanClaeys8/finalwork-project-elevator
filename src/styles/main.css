@@ -662,6 +662,11 @@ html {
 
 
 
+
+
+
+/*///// STAGETREE //////*/
+
 #popup-container {
   position: absolute;
   top: 0;
@@ -679,4 +684,39 @@ html {
   z-index: 6000;
   pointer-events: auto;
   transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+
+
+
+/*///// STAGETREE //////*/
+
+#symbol-zone {
+    position: absolute;
+    width: 350px;  
+    height: 300px;
+    transform: translate(-50%, -50%);
+    border-radius: 70px;
+     border: 0px rgba(255, 255, 255, 0);
+     /* Show zone */
+    /* border: 2px dashed rgba(255,255,255,0.5); */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 2000;
+}
+
+.symbol-video {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    cursor: grab;
 }
