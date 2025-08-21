@@ -11,23 +11,128 @@
 </head>
 
 <body>
-    
+    <style>
+        body,
+        html {
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+
     <!----- Home icon----->
     <div id="info-page">
         <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
     </div>
 
-    <!----- Background animation----->
-    <div id="background-container">
-        <video class="bg-video" id="stage-one-second" src="/src/assets/images/Stage_05_Elevator_02.mp4" muted playsinline></video>
-        <video class="bg-video" id="stage-one-first" src="/src/assets/images/Stage_05_Elevator_01.mp4" muted playsinline autoplay loop></video>
-        <video class="bg-video" id="stage-two-scene" src="/src/assets/images/Scene_05_1.mp4" preload="auto" muted playsinline style="display:none;"></video>
-        <video class="bg-video" id="scenefive-background" src="/src/assets/images/Scene_05_2.mp4" preload="auto" muted loop playsinline style="display:none;"></video>
-        <video class="bg-video" id="close-doors" src="/src/assets/images/Scene_up.mp4" muted playsinline style="display:none;"></video>
+
+    <div class="end-wrapper">
+        <video src="/src/assets/images/Home_animation_bg.mp4" autoplay loop muted playsinline></video>
+
+        <div class="solution-content">
+            <h3>Now it’s your move!</h3>
+            <h5>Break free from addictive scrolling with these solutions <br>
+                ↓ ↓ ↓</h5>
+            <div class="solution-links">
+
+                <a href="https://www.forestapp.cc/" target="_blank">
+                    <img src="/src/assets/images/solution_forest.png" alt="Forest app">
+                </a>
+                <a href="https://freedom.to/" target="_blank">
+                    <img src="/src/assets/images/solution_freedom.png" alt="Freedom app">
+                </a>
+                <a href="https://touchgrass.now/" target="_blank">
+                    <img src="/src/assets/images/solution_grass.png" alt="Touch grass app">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.urbandroid.ddc&hl=en&pli=1" target="_blank">
+                    <img src="/src/assets/images/solution_detox.png" alt="Detox app">
+                </a>
+                <a href="https://one-sec.app/" target="_blank">
+                    <img src="/src/assets/images/solution_sec.png" alt="one sec app">
+                </a>
+            </div>
+        </div>
+        <button class="scroll-btn" id="scrollDown">Story</button>
+    </div>
     </div>
 
 
-    <script src="../js/stagefive.js"></script>
+    <!-- INTRO TEXT -->
+    <section class="intro-text">
+        <h1>Each scene marks a step in the descent into addictive scrolling,
+            showing how the brain changes along the way and the consequences that follow.</h1>
+    </section>
+
+    <!-- SECTIONS -->
+    <section class="section">
+        <img src="/src/assets/images/Scene_01_image.png" alt="Scene 1">
+        <div class="section-text">
+            <h2>1. Discovery</h2>
+            <h4> → First glance</h4>
+            <p>The first exposure often happens in moments of boredom or downtime. The phone becomes a quick source of
+                stimulation,
+                filling empty spaces in the day. This shows how easily the habit begins, small, harmless at first, but
+                it plants the seed.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="/src/assets/images/Scene_02_image.png" alt="Scene 2">
+        <div class="section-text">
+            <h2>2. Habit</h2>
+            <h4> → Routine Stop</h4>
+            <p>The habit forms quickly when the phone becomes the very first thing checked in the morning. This scene
+                highlights how scrolling starts integrating into daily routines,
+                shaping automatic behaviors and setting the tone for the day.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="/src/assets/images/Scene_03_image.png" alt="Scene 3">
+        <div class="section-text">
+            <h2>3. Distraction</h2>
+            <h4> → Lost Focus</h4>
+            <p>The phone interrupts concentration and creates constant distraction. This illustrates how scrolling
+                begins to weaken focus, dividing attention between tasks and endless notifications.
+                The brain starts to crave quick rewards instead of sustained effort.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="/src/assets/images/Scene_04_image.png" alt="Scene 4">
+        <div class="section-text">
+            <h2>4. Disturbed Sleep</h2>
+            <h4> → Night Shift</h4>
+            <p>Late-night scrolling disrupts sleep cycles and overstimulates the brain. The blue light and constant
+                input prevent rest, symbolized by the brain overloaded with posts.
+                This stage shows how the addiction starts to affect physical and mental health directly.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="/src/assets/images/Scene_05_image.png" alt="Scene 5">
+        <div class="section-text">
+            <h2>5. Isolation</h2>
+            <h4> → Dead end</h4>
+            <p>At the end of the spiral, social media no longer provides joy only emptiness and isolation.
+                The room symbolizes disconnection from the real world, friends, and meaningful activities. It represents
+                the emotional
+                void created when scrolling becomes the only source of stimulation.</p>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer">
+            <p>Final work<br>
+                2024-2025
+
+            </p>
+            <p>Erasmus hogeschool Brussel<br>
+                Multimedia & creative technologie
+            </p>
+
+        </section>
+    </footer>
+
+    <script src="../js/end.js"></script>
 </body>
 
 </html>
