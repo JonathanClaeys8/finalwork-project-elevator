@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echolift</title>
+    <link rel="icon" type="image/x-icon" href="/src/assets/images/Echolift_icon.png">
+    <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+
+<body>
+    
+    <!----- Home icon----->
+    <div id="info-page">
+        <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
+    </div>
+
+    <!----- Background animation----->
+    <div id="background-container">
+        <video class="bg-video" id="stage-one-second" src="/src/assets/images/Stage_05_Elevator_02.mp4" muted playsinline></video>
+        <video class="bg-video" id="stage-one-first" src="/src/assets/images/Stage_05_Elevator_01.mp4" muted playsinline autoplay loop></video>
+        <video class="bg-video" id="stage-two-scene" src="/src/assets/images/Scene_05_1.mp4" preload="auto" muted playsinline style="display:none;"></video>
+        <video class="bg-video" id="scenefive-background" src="/src/assets/images/Scene_05_2.mp4" preload="auto" muted loop playsinline style="display:none;"></video>
+        <video class="bg-video" id="close-doors" src="/src/assets/images/Scene_up.mp4" muted playsinline style="display:none;"></video>
+    </div>
+
+
+    <script src="../js/stagefive.js"></script>
+</body>
+
+</html>

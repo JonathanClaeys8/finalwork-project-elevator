@@ -8,6 +8,8 @@ module.exports = {
     stagetwo: "./src/javascript/components/stagetwo.js",
     stagetree: "./src/javascript/components/stagetree.js",
     stagefour: "./src/javascript/components/stagefour.js",
+    stagefive: "./src/javascript/components/stagefive.js",
+    end: "./src/javascript/components/end.js"
   },
   output: {
     path: path.resolve(__dirname, "public/js"),
