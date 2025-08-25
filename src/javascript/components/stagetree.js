@@ -53,7 +53,6 @@ function updatePositions() {
 
 // Next Page Trigger
 function triggerNextStage() {
-    console.log("closing")
     const closeDoors = document.getElementById("close-doors");
 
     // Remove Popups
@@ -126,7 +125,6 @@ function createPopup(delay = 0) {
         clickCount++;
         img.remove();
         if (clickCount >= 8) {
-            console.log("clicks!");
             triggerNextStage();
         } else {
             createPopup();
