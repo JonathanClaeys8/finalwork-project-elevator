@@ -38,5 +38,4 @@ Het concept van dit project is het bewust maken van jongeren over de gevaren van
 - Dynamische en visueel aantrekkelijke webpagina’s
 - Geschikt als schoolproject of demonstratie van front-end vaardigheden
 
-## Live Demo 
-Link: 
+
