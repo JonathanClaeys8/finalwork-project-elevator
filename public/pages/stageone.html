@@ -11,42 +11,51 @@
 </head>
 
 <body>
-  <!----- Home icon----->
+  <!----- Navigation Options ----->
   <div id="info-page">
-    <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
+    <a href="../index.html"><img src="/src/assets/images/icons/Home-icon.png" alt="Home"></a>
+    <a href="../pages/end.html"><img src="/src/assets/images/icons/solution-icon.png" alt="Solution"></a>
+    <div class="volume-control">
+      <img id="volume-btn" src="/src/assets/images/icons/sound-icon.png" alt="Volume">
+      <div class="slider-wrapper">
+        <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
   </div>
 
+  <!----- Background Animation ----->
+  <div id="background-container">
+    <video class="bg-video" id="stage-one-second" src="/src/assets/images/animations/Stage_01_Elevator_02.mp4" muted
+      playsinline></video>
+    <video class="bg-video" id="stage-one-first" src="/src/assets/images/animations/Stage_01_Elevator_01.mp4" muted
+      playsinline autoplay loop></video>
+    <video class="bg-video" id="first-scene" src="/src/assets/images/animations/Scene_01_01.mp4" muted playsinline
+      style="display:none;"></video>
+    <video class="bg-video" id="second-scene" src="/src/assets/images/animations/Scene_01_02.mp4" muted playsinline loop
+      style="display:none;"></video>
+    <video class="bg-video" id="close-doors" src="/src/assets/images/animations/closing-doors.webm" muted playsinline
+      style="display:none;"></video>
+  </div>
 
-  <!----- Background animation----->
-<div id="background-container"> 
-    <video class="bg-video" id="stage-one-second" src="/src/assets/images/Stage_01_Elevator_02.mp4" muted playsinline></video>
-    <video class="bg-video" id="stage-one-first" src="/src/assets/images/Stage_01_Elevator_01.mp4" muted playsinline autoplay loop></video>
-    <video class="bg-video" id="first-scene" src="/src/assets/images/Scene_01_01.mp4" muted playsinline style="display:none;"></video>
-    <video class="bg-video" id="second-scene" src="/src/assets/images/Scene_01_02.mp4" muted playsinline loop style="display:none;"></video> 
-    <video class="bg-video" id="close-doors" src="/src/assets/images/closing-doors.webm" muted playsinline style="display:none;"></video>
-</div>
-
-
-  <!----- 1. Zone ----->
+  <!----- Floor Clickable Zone ---->
   <div id="floor-option-wrapper">
     <button id="floor-option-btn"></button>
   </div>
 
-  <!----- 2. Pop-up ----->
+  <!----- Button: Exit Elevator ---->
   <div class="exit-wrapper">
-  <button id="exit-elevator" style="display:none;">Exit Elevator</button>
+    <button id="exit-elevator" style="display:none;">Exit Elevator</button>
   </div>
 
-  <!-- Section scroller -->
-<section id="scroller" style="display:none;">
-  <div class="card"><img src="/src/assets/images/Scene_01_Posts_01.png" alt="Post 1"></div>
- <div class="card"><img src="/src/assets/images/Scene_01_Posts_02.png" alt="Post 2"></div>
-  <div class="card"><img src="/src/assets/images/Scene_01_Posts_03.png" alt="Post 3"></div>
-   <div class="card"><img src="/src/assets/images/Scene_01_Posts_04.png" alt="Post 4"></div>
-    <div class="card"><img src="/src/assets/images/Scene_01_Posts_05.png" alt="Post 5"></div>
-     <div class="card"><img src="/src/assets/images/Scene_01_Posts_06.png" alt="Post 6"></div>
-</section>
-
+  <!----- Scroll Cards Scene---->
+  <section id="scroller" style="display:none;">
+    <div class="card"><img src="/src/assets/images/utils/Scene_01_Posts_01.png" alt="Post 1"></div>
+    <div class="card"><img src="/src/assets/images/utils/Scene_01_Posts_02.png" alt="Post 2"></div>
+    <div class="card"><img src="/src/assets/images/utils/Scene_01_Posts_03.png" alt="Post 3"></div>
+    <div class="card"><img src="/src/assets/images/utils/Scene_01_Posts_04.png" alt="Post 4"></div>
+    <div class="card"><img src="/src/assets/images/utils/Scene_01_Posts_05.png" alt="Post 5"></div>
+    <div class="card"><img src="/src/assets/images/utils/Scene_01_Posts_06.png" alt="Post 6"></div>
+  </section>
 
   <script src="../js/stageone.js"></script>
 </body>

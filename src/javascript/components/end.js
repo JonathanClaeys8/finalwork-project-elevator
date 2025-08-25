@@ -1,3 +1,4 @@
+// Imports
 import {
     gsap
 } from "gsap";
@@ -7,7 +8,7 @@ import {
 } from "gsap/ScrollTrigger";
 
 
-
+// Smooth Scroll Button
 document.getElementById("scrollDown").addEventListener("click", () => {
     window.scrollTo({
         top: window.innerHeight,
@@ -15,13 +16,10 @@ document.getElementById("scrollDown").addEventListener("click", () => {
     });
 });
 
-
 gsap.registerPlugin(ScrollTrigger);
-
 document.querySelectorAll(".section").forEach((section, i) => {
     const text = section.querySelector(".section-text");
     const img = section.querySelector("img");
-
     gsap.from(text, {
         scrollTrigger: {
             trigger: section,
@@ -33,7 +31,6 @@ document.querySelectorAll(".section").forEach((section, i) => {
         duration: 1,
         ease: "power2.out",
     });
-
     gsap.from(img, {
         scrollTrigger: {
             trigger: section,

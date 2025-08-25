@@ -1,3 +1,4 @@
+// Imports
 import {
     gsap
 } from "gsap";
@@ -10,7 +11,7 @@ import {
 
 gsap.registerPlugin(Draggable, ScrollTrigger);
 
-// POSITIONS RELATIVES IN % //////////////////////////////////////////
+// Initial Elements Positions (In %)
 const RELATIVE_POSITIONS = {
     floorOptionBtn: {
         x: 0.76,
@@ -26,7 +27,7 @@ const RELATIVE_POSITIONS = {
     }
 };
 
-// UPDATE POSITIONS /////////////////////////////////////////
+// Responsive Elements
 function updatePositions() {
     const video = document.getElementById("stage-one-first");
     const floorButton = document.getElementById("floor-option-btn");
@@ -34,11 +35,9 @@ function updatePositions() {
     const scroller = document.getElementById("scroller");
 
     if (!video || !video.videoWidth) return;
-
     const containerAspect = window.innerWidth / window.innerHeight;
     const videoAspect = video.videoWidth / video.videoHeight;
     let videoWidth, videoHeight, offsetX, offsetY;
-
     if (containerAspect > videoAspect) {
         videoWidth = window.innerWidth;
         videoHeight = window.innerWidth / videoAspect;
@@ -50,7 +49,6 @@ function updatePositions() {
         offsetY = 0;
         offsetX = (window.innerWidth - videoWidth) / 2;
     }
-
     const placeElement = (el, rel) => {
         if (!el) return;
         el.style.position = "absolute";
@@ -60,19 +58,17 @@ function updatePositions() {
         el.style.left = `${x - el.offsetWidth / 2}px`;
         el.style.top = `${y - el.offsetHeight / 2}px`;
     };
-
     placeElement(floorButton, RELATIVE_POSITIONS.floorOptionBtn);
     placeElement(exitElevatorBtn, RELATIVE_POSITIONS.exitElevatorBtn);
     placeElement(scroller, RELATIVE_POSITIONS.scroller);
 }
 
-// SCROLLER INIT /////////////////////////////////////////////////////
+// Scroller Init
 function initScroller() {
     const scroller = document.getElementById("scroller");
+
     if (!scroller) return;
-
     const cards = document.querySelectorAll("#scroller .card");
-
     cards.forEach((card, index) => {
         ScrollTrigger.create({
             trigger: card,
@@ -81,7 +77,6 @@ function initScroller() {
             end: "bottom center",
             onEnter: () => {
                 if (index === cards.length - 1) {
-
                     const closeDoors = document.getElementById("close-doors");
 
                     if (closeDoors) {
@@ -93,7 +88,6 @@ function initScroller() {
                                 scroller.style.display = "none";
                             }
                         });
-                        // CSS ADJUSTMENTS
                         closeDoors.style.display = "block";
                         closeDoors.style.position = "fixed";
                         closeDoors.style.top = "0";
@@ -102,10 +96,10 @@ function initScroller() {
                         closeDoors.style.height = "100%";
                         closeDoors.style.objectFit = "cover";
                         closeDoors.style.zIndex = "10000";
-
                         closeDoors.currentTime = 0;
                         closeDoors.play();
 
+                        // Next Page Trigger
                         closeDoors.onended = () => {
                             window.location.href = "stagetwo.html";
                         };
@@ -114,7 +108,6 @@ function initScroller() {
             }
         });
     });
-
     gsap.fromTo(scroller, {
         opacity: 0,
         scale: 0.8
@@ -127,7 +120,6 @@ function initScroller() {
     updatePositions();
 }
 
-// INIT EVENTS ///////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
     const videoEl = document.getElementById("stage-one-first");
     videoEl.addEventListener("loadedmetadata", updatePositions);
@@ -140,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const exitBtn = document.getElementById("exit-elevator");
     const firstScene = document.getElementById("first-scene");
 
-    // FLOOR ELEVATOR TRIGGER
+    // Floor Elevator Trigger
     floorBtn.addEventListener("click", () => {
         floorBtn.style.display = "none";
         firstVideo.style.display = "none";
@@ -162,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
 
-    // EXIT ELEVATOR TRIGGER
+     // Exit button
     exitBtn.addEventListener("click", () => {
         gsap.to(exitBtn, {
             opacity: 0,
@@ -170,9 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             duration: 0.5,
             ease: "back.in(1.7)",
             onComplete: () => {
-
                 exitBtn.style.display = "none";
-
                 gsap.fromTo(
                     secondVideo, {
                         scale: 1,
@@ -186,23 +176,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         onComplete: () => {
                             firstVideo.style.display = "none";
                             secondVideo.style.display = "none";
-
                             if (firstScene) {
                                 firstScene.style.display = "block";
                                 firstScene.style.zIndex = "9999";
                                 firstScene.currentTime = 0;
                                 firstScene.play();
-
                                 firstScene.onended = () => {
-                                    firstScene.style.display = "none";
-
+                                firstScene.style.display = "none";
                                     const secondScene = document.getElementById("second-scene");
+                                    
                                     if (secondScene) {
                                         secondScene.style.display = "block";
                                         secondScene.style.zIndex = "5000";
                                         secondScene.currentTime = 0;
                                         secondScene.play();
-
                                         const scroller = document.getElementById("scroller");
                                         scroller.style.display = "block";
                                         scroller.style.opacity = "1";

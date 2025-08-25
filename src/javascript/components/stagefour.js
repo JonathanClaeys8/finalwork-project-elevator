@@ -1,3 +1,4 @@
+// Imports
 import {
     gsap
 } from "gsap";
@@ -8,7 +9,7 @@ import {
 
 gsap.registerPlugin(Draggable);
 
-// POSITIONS RELATIVES IN %
+// Initial Elements Positions (In %)
 const RELATIVE_POSITIONS = {
     floorOptionBtn: {
         x: 0.76,
@@ -24,7 +25,7 @@ const RELATIVE_POSITIONS = {
     }
 };
 
-// POSITION IN PIXELS OF SYMBOLS
+// Responsive Elements
 const SYMBOL_POSITIONS = [{
         x: 25,
         y: 35
@@ -54,7 +55,7 @@ const SYMBOL_POSITIONS = [{
 let symbolsOut = 0;
 const stageTwoScene = document.getElementById("stage-two-scene");
 
-// UPDATE POSITIONS
+// Update positions
 function updatePositions() {
     const video = document.getElementById("stage-one-first");
     if (!video || !video.videoWidth) return;
@@ -93,7 +94,7 @@ function updatePositions() {
     placeElement(symbolZone, RELATIVE_POSITIONS.symbolZone);
 }
 
-// CREATION SYMBOLS
+// Create Symbols
 function createSymbols() {
     const zone = document.getElementById("symbol-zone");
     if (!zone) return;
@@ -109,7 +110,7 @@ function createSymbols() {
         video.classList.add("symbol-video");
 
         const source = document.createElement("source");
-        source.src = "/src/assets/images/brain-symbol.webm";
+        source.src = "/src/assets/images/utils/brain-symbol.webm";
         source.type = "video/webm";
         video.appendChild(source);
         video.style.position = "absolute";
@@ -118,13 +119,12 @@ function createSymbols() {
 
         zone.appendChild(video);
 
-        // FORCE PLAY
+        // Force Playing Video's 
         video.load();
         video.play().catch(err => {
             console.warn("Autoplay blocked for symbol video:", err);
         });
 
-        // DRAGGABLE
         Draggable.create(video, {
             type: "x,y",
             bounds: document.body,
@@ -133,7 +133,7 @@ function createSymbols() {
                 const zoneRect = zone.getBoundingClientRect();
                 const rect = this.target.getBoundingClientRect();
 
-                // CHECK OUT OF ZONE
+                // Check (if) Out Zone
                 if (
                     rect.right < zoneRect.left ||
                     rect.left > zoneRect.right ||
@@ -143,7 +143,7 @@ function createSymbols() {
                     if (!this.target.dataset.out) {
                         this.target.dataset.out = "true";
                         symbolsOut++;
-
+                    
                         gsap.to(this.target, {
                             opacity: 0,
                             scale: 0.3,
@@ -153,7 +153,7 @@ function createSymbols() {
                             }
                         });
 
-                        // TRIGGER
+                        // Trigger Over : 6
                         if (symbolsOut >= 6) {
                             gsap.to(stageTwoScene, {
                                 opacity: 0,
@@ -179,7 +179,6 @@ function createSymbols() {
 function triggerNextStage() {
     const closeDoors = document.getElementById("close-doors");
 
-    // CLOSING DOORS
     if (closeDoors) {
         closeDoors.style.display = "block";
         closeDoors.style.position = "fixed";
@@ -191,24 +190,19 @@ function triggerNextStage() {
         closeDoors.style.zIndex = "10000";
         closeDoors.currentTime = 0;
         closeDoors.play();
-
         closeDoors.onended = () => {
             window.location.href = "stagefive.html";
         };
     }
 }
 
-
-// INIT
 document.addEventListener("DOMContentLoaded", () => {
     const firstVideo = document.getElementById("stage-one-first");
     const secondVideo = document.getElementById("stage-one-second");
     const floorBtn = document.getElementById("floor-option-btn");
     const exitBtn = document.getElementById("exit-elevator");
     const symbolZone = document.getElementById("symbol-zone");
-
     if (symbolZone) symbolZone.style.display = "none";
-
     firstVideo.addEventListener("loadedmetadata", updatePositions);
     window.addEventListener("resize", updatePositions);
     updatePositions();
@@ -219,7 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
         secondVideo.style.display = "block";
         secondVideo.currentTime = 0;
         secondVideo.play();
-
         secondVideo.onended = () => {
             exitBtn.style.display = "block";
             updatePositions();
@@ -235,11 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
 
-
-
-
-
-    // EXIT ELEVATOR BUTTON
+    // Exit Elevator Button
     exitBtn.addEventListener("click", () => {
         gsap.to(exitBtn, {
             opacity: 0,

@@ -1,9 +1,18 @@
-import { gsap } from "gsap";
+// Imports
+import {
+    gsap
+} from "gsap";
 
-// POSITIONS RELATIVES IN %
+// Initial Elements Positions (In %)
 const RELATIVE_POSITIONS = {
-    floorOptionBtn: { x: 0.76, y: 0.53 },
-    exitElevatorBtn: { x: 0.5, y: 0.65 },
+    floorOptionBtn: {
+        x: 0.76,
+        y: 0.53
+    },
+    exitElevatorBtn: {
+        x: 0.5,
+        y: 0.65
+    },
 };
 
 const stageTwoScene = document.getElementById("stage-two-scene");
@@ -13,14 +22,12 @@ let progress = 0;
 let progressInterval = null;
 
 
-// UPDATE POSITIONS
+// Update positions
 function updatePositions() {
     const video = document.getElementById("stage-one-first");
     if (!video || !video.videoWidth) return;
-
     const floorButton = document.getElementById("floor-option-btn");
     const exitElevatorBtn = document.getElementById("exit-elevator");
-
     const containerAspect = window.innerWidth / window.innerHeight;
     const videoAspect = video.videoWidth / video.videoHeight;
     let videoWidth, videoHeight, offsetX, offsetY;
@@ -54,8 +61,6 @@ function updatePositions() {
 
 function triggerNextStage() {
     const closeDoors = document.getElementById("close-doors");
-
-    // CLOSING DOORS
     if (closeDoors) {
         closeDoors.style.display = "block";
         closeDoors.style.position = "fixed";
@@ -67,37 +72,34 @@ function triggerNextStage() {
         closeDoors.style.zIndex = "10000";
         closeDoors.currentTime = 0;
         closeDoors.play();
-
         closeDoors.onended = () => {
             window.location.href = "end.html";
         };
     }
 }
 
-// BAR PROGRESSION
+// Bar Progression
 function startProgression() {
     const container = document.getElementById("progress-container");
     const fillEl = document.getElementById("progress-fill");
     container.style.display = "block";
-
-    // RESET
     progress = 0;
     fillEl.style.width = "0%";
-    // LOSE POINTS
+
+    // Lose Points
     if (progressInterval) clearInterval(progressInterval);
     progressInterval = setInterval(() => {
         progress = Math.max(0, progress - 10);
         updateProgressUI(fillEl);
     }, 1000);
-    // ADD POINTS CLICK
+
+    // Add Points
     document.body.addEventListener("click", () => {
         progress = Math.min(100, progress + 5);
         updateProgressUI(fillEl);
-
-        //TRIGGER
         if (progress >= 100) {
             clearInterval(progressInterval);
-             gsap.to(container, {
+            gsap.to(container, {
                 opacity: 0,
                 duration: 1,
                 onComplete: () => {
@@ -105,25 +107,20 @@ function startProgression() {
                     triggerNextStage();
                 }
             });
-          
+
         }
     });
 }
+
 function updateProgressUI(fillEl) {
     fillEl.style.width = `${progress}%`;
 }
 
-
-
-
-
-// INIT
 document.addEventListener("DOMContentLoaded", () => {
     const firstVideo = document.getElementById("stage-one-first");
     const secondVideo = document.getElementById("stage-one-second");
     const floorBtn = document.getElementById("floor-option-btn");
     const exitBtn = document.getElementById("exit-elevator");
-
     firstVideo.addEventListener("loadedmetadata", updatePositions);
     window.addEventListener("resize", updatePositions);
     updatePositions();
@@ -152,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // EXIT ELEVATOR BUTTON
+    // Exit Elevator Button
     exitBtn.addEventListener("click", () => {
         gsap.to(exitBtn, {
             opacity: 0,
@@ -173,15 +170,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     onComplete: () => {
                         firstVideo.style.display = "none";
                         secondVideo.style.display = "none";
-
                         stageTwoScene.style.display = "block";
                         stageTwoScene.currentTime = 0;
                         stageTwoScene.play();
-
+                        
                         stageTwoScene.addEventListener("loadedmetadata", () => {
                             updatePositions();
                         });
-
                         stageTwoScene.onended = () => {
                             stageTwoScene.style.display = "none";
                             sceneFiveBackground.style.display = "block";

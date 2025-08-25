@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Echolift</title>
-  <link rel="icon" type="image/x-icon" href="/src/assets/images/Echolift_icon.png">
+  <link rel="icon" type="image/x-icon" href="/src/assets/images/icons/Echolift_icon.png">
   <link rel="stylesheet" href="/src/styles/reset.css" />
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 
 <body>
-  <!----- Home icon----->
+  <!----- Navigation Options ----->
   <div id="info-page">
-    <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
+    <a href="../index.html"><img src="/src/assets/images/icons/Home-icon.png" alt="Home"></a>
+    <a href="../pages/end.html"><img src="/src/assets/images/icons/solution-icon.png" alt="Solution"></a>
+    <div class="volume-control">
+      <img id="volume-btn" src="/src/assets/images/icons/sound-icon.png" alt="Volume">
+      <div class="slider-wrapper">
+        <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
   </div>
 
-
-  <!----- Background animation----->
+  <!----- Background Animation----->
   <div id="background-container">
-    <video class="bg-video" src="/src/assets/images/repair_ground_level_03.mp4" muted playsinline autoplay loop></video>
-    <video id="main-video" src="/src/assets/images/reapair_elevator_light_01.webm" autoplay muted loop playsinline></video>
-    <video id="transition-video" src="/src/assets/images/Repair_final_transition.webm" autoplay muted playsinline></video>
-    <video class="bg-video  top-video" src="/src/assets/images/repair_ground_level_01.webm" muted playsinline autoplay loop></video>
-
+    <video class="bg-video" src="/src/assets/images/animations/repair_ground_level_03.mp4" muted playsinline autoplay
+      loop></video>
+      playsinline></video>
+    <video id="transition-video" src="/src/assets/images/animations/Repair_final_transition.webm" autoplay muted
+      playsinline></video>
+    <video class="bg-video  top-video" src="/src/assets/images/animations/repair_ground_level_01.webm" muted playsinline
+      autoplay loop></video>
     <div id="zone-a" class="drop-zone"></div>
     <div id="zone-b" class="drop-zone"></div>
-
-    <img src="/src/assets/images/Repair_interaction_button_01.png" class="video-button" id="image-a" />
-    <img src="/src/assets/images/Repair_interaction_button_02.png" class="video-button" id="image-b" />
+    <img src="/src/assets/images/utils/Repair_interaction_button_01.png" class="video-button" id="image-a" />
+    <img src="/src/assets/images/utils/Repair_interaction_button_02.png" class="video-button" id="image-b" />
   </div>
 
-
-  <!----- 1. pop-up ----->
+  <!----- Pop-up: Task Explainer ---->
   <div id="completion-task" style="display: none;">
     <div class="completion-overlay">
       <section class="check-task">
-        <img src="/src/assets/images/notice_icon.png" alt="Checked" />
+        <img src="/src/assets/images/icons/notice_icon.png" alt="Checked" />
         <h2>SYSTEM NOTICE</h2>
       </section>
       <h3>- Before the descent can begin, two essential controls must be recovered.
         Overexposure has worn them out, like habits pressed too many times.</h3>
-      <h3>Recover the two fallen buttons and return them to their rightful place -</h3>
+      <img id="exemple-button" src="/src/assets/images/utils/Repair_interaction_button_02.png" alt="Exemple button" />
+      <h3>Here an exemple of one of the two fallen buttons. Drag and drop them to their rightful place -</h3>
       <button id="proceed-button-task">Proceed</button>
     </div>
   </div>
 
-
-  <!----- 2. pop-up ----->
+  <!----- Pop-up: First Task ----->
   <div id="completion-first-task" style="display: none;">
-    <img id="top-image-first-task" class="popup-top-image" src="/src/assets/images/liner_pop.png" alt="Top Image" />
+    <img id="top-image-first-task" class="popup-top-image" src="/src/assets/images/utils/liner_pop.png" alt="Liner" />
     <div class="completion-overlay">
       <section class="check-task">
-        <img src="/src/assets/images/checked_icon.png" alt="Checked" />
+        <img src="/src/assets/images/icons/checked_icon.png" alt="Checked" />
         <h2>TASK 1/2 COMPLETE</h2>
       </section>
       <h3>- The system has flagged another error.
@@ -61,47 +66,40 @@
     </div>
   </div>
 
-  <!----- 3. pop-up ----->
+  <!----- Pop-up: Wire Panel ----->
   <div id="zone-click"></div>
   <div id="completion-second-task" style="display: none;">
     <div id="panel-wrapper">
       <div class="panel">
         <div class="outputs">
-          <img src="/src/assets/images/socket-yellow.png" class="socket" id="socket-yellow" draggable="false" />
-          <img src="/src/assets/images/socket-blue.png" class="socket" id="socket-blue" draggable="false" />
-          <img src="/src/assets/images/socket-red.png" class="socket" id="socket-red" draggable="false" />
+          <img src="/src/assets/images/utils/socket-yellow.png" class="socket" id="socket-yellow" draggable="false" />
+          <img src="/src/assets/images/utils/socket-blue.png" class="socket" id="socket-blue" draggable="false" />
+          <img src="/src/assets/images/utils/socket-red.png" class="socket" id="socket-red" draggable="false" />
         </div>
-
         <svg id="cable-layer">
           <line id="cable-yellow" stroke="#FEC34C" stroke-width="5" visibility="hidden" />
-
           <line id="cable-blue" stroke="#246DA3" stroke-width="5" visibility="hidden" />
           <line id="cable-red" stroke="#FF3E3E" stroke-width="5" visibility="hidden" />
         </svg>
-
         <div class="inputs">
-          <img src="/src/assets/images/anchor-yellow.png" class="anchor" id="anchor-yellow" draggable="false" />
-          <img src="/src/assets/images/anchor-blue.png" class="anchor" id="anchor-blue" draggable="false" />
-          <img src="/src/assets/images/anchor-red.png" class="anchor" id="anchor-red" draggable="false" />
-
+          <img src="/src/assets/images/utils/anchor-yellow.png" class="anchor" id="anchor-yellow" draggable="false" />
+          <img src="/src/assets/images/utils/anchor-blue.png" class="anchor" id="anchor-blue" draggable="false" />
+          <img src="/src/assets/images/utils/anchor-red.png" class="anchor" id="anchor-red" draggable="false" />
         </div>
       </div>
     </div>
   </div>
 
-  <!----- 4. pop-up ----->
+  <!----- Pop-up: Enter Elevator Button ---->
   <div id="completion-repair">
-      <button id="enter-elevator">Enter elevator</button>
+    <button id="enter-elevator">Enter elevator</button>
   </div>
 
-<!-- Outro -->
-<div id="elevator-animation">
-  <video id="elevator-video" src="/src/assets/images/Repair_zoom_elevator.mp4" playsinline muted></video>
-</div>
-
-
+  <!----- Zoom Elevator Animation ----->
+  <div id="elevator-animation">
+    <video id="elevator-video" src="/src/assets/images/animations/Repair_zoom_elevator.mp4" playsinline muted></video>
+  </div>
 
   <script src="../js/repair.js"></script>
 </body>
-
 </html>

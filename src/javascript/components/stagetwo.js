@@ -1,3 +1,4 @@
+// Imports
 import {
     gsap
 } from "gsap";
@@ -8,7 +9,7 @@ import {
 
 gsap.registerPlugin(Draggable);
 
-// POSITIONS RELATIVES IN % 
+// Initial Elements Positions (In %)
 const RELATIVE_POSITIONS = {
     floorOptionBtn: {
         x: 0.76,
@@ -28,16 +29,14 @@ const RELATIVE_POSITIONS = {
     }
 };
 
-// UPDATE POSITIONS
+// Responsive Elements
 function updatePositions() {
     const video = document.getElementById("stage-one-first");
     if (!video || !video.videoWidth) return;
-
     const floorButton = document.getElementById("floor-option-btn");
     const exitElevatorBtn = document.getElementById("exit-elevator");
     const gameTimer = document.getElementById("game-timer");
     const clickZone = document.getElementById("click-zone");
-
     const containerAspect = window.innerWidth / window.innerHeight;
     const videoAspect = video.videoWidth / video.videoHeight;
     let videoWidth, videoHeight, offsetX, offsetY;
@@ -61,20 +60,13 @@ function updatePositions() {
         el.style.left = `${x - el.offsetWidth / 2}px`;
         el.style.top = `${y - el.offsetHeight / 2}px`;
     };
-
     placeElement(floorButton, RELATIVE_POSITIONS.floorOptionBtn);
     placeElement(exitElevatorBtn, RELATIVE_POSITIONS.exitElevatorBtn);
     placeElement(gameTimer, RELATIVE_POSITIONS.gameTimer);
     placeElement(clickZone, RELATIVE_POSITIONS.clickZone);
 }
 
-
-
-
-
-
-
-// TIMER
+//  Timer
 function formatTime(minutes, seconds) {
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
@@ -121,8 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 6000);
     }
 
-
-
     function triggerNextStage() {
         const closeDoors = document.getElementById("close-doors");
 
@@ -135,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
             closeDoors.style.height = "100%";
             closeDoors.style.objectFit = "cover";
             closeDoors.style.zIndex = "10000";
-
             closeDoors.currentTime = 0;
             closeDoors.play();
 
+            // Next Page Trigger
             closeDoors.onended = () => {
                 window.location.href = "stagetree.html";
             };
@@ -156,9 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clickCount++;
         clickCooldown = true;
         setTimeout(() => clickCooldown = false, 2000);
-
         startInactivityTimer();
-
         handAnimation.loop = false;
         handAnimation.currentTime = 0;
         handAnimation.play();
@@ -172,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
         secondVideo.style.display = "block";
         secondVideo.currentTime = 0;
         secondVideo.play();
-
         secondVideo.onended = () => {
             exitBtn.style.display = "block";
             updatePositions();
@@ -189,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    //INIT NEW STAGE BUTTON
+    //Init Stage Button
     exitBtn.addEventListener("click", () => {
         gsap.to(exitBtn, {
             opacity: 0,
@@ -211,15 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     onComplete: () => {
                         firstVideo.style.display = "none";
                         secondVideo.style.display = "none";
-
                         stageTwoScene.style.display = "block";
                         stageTwoScene.currentTime = 0;
                         stageTwoScene.play();
-
                         handAnimation.style.display = "block";
                         handAnimation.currentTime = 0;
                         handAnimation.play();
-
                         let sceneStarted = false;
                         let handStarted = false;
 
@@ -232,7 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 startInactivityTimer();
                             }
                         };
-
                         stageTwoScene.onplay = () => {
                             sceneStarted = true;
                             checkStart();
@@ -246,9 +229,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
     updateTimerDisplay();
 });
-
-
-

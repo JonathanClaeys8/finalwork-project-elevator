@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!----- Background Style ----->
     <style>
         body,
         html {
@@ -18,35 +19,40 @@
         }
     </style>
 
-    <!----- Home icon----->
+    <!----- Navigation Options ----->
     <div id="info-page">
-        <a href="/public/index.html"><img src="/src/assets/images/Echolift_icon.png" alt="Icon"></a>
+        <a href="../index.html"><img src="/src/assets/images/icons/Home-icon.png" alt="Home"></a>
+        <a href="../pages/end.html"><img src="/src/assets/images/icons/solution-icon.png" alt="Solution"></a>
+        <div class="volume-control">
+            <img id="volume-btn" src="/src/assets/images/icons/sound-icon.png" alt="Volume">
+            <div class="slider-wrapper">
+                <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1">
+            </div>
+        </div>
     </div>
 
-
+    <!----- Solution Section ----->
     <div class="end-wrapper">
-        <video src="/src/assets/images/Home_animation_bg.mp4" autoplay loop muted playsinline></video>
-
+        <video src="/src/assets/images/animations/Home_animation_bg.mp4" autoplay loop muted playsinline></video>
         <div class="solution-content">
             <h3>Now it’s your move!</h3>
-            <h5>Break free from addictive scrolling with these solutions <br>
+            <h5>Break free from addictive scrolling. Here are some tools to start with <br>
                 ↓ ↓ ↓</h5>
             <div class="solution-links">
-
                 <a href="https://www.forestapp.cc/" target="_blank">
-                    <img src="/src/assets/images/solution_forest.png" alt="Forest app">
+                    <img src="/src/assets/images/utils/solution_forest.png" alt="Forest app">
                 </a>
                 <a href="https://freedom.to/" target="_blank">
-                    <img src="/src/assets/images/solution_freedom.png" alt="Freedom app">
+                    <img src="/src/assets/images/utils/solution_freedom.png" alt="Freedom app">
                 </a>
                 <a href="https://touchgrass.now/" target="_blank">
-                    <img src="/src/assets/images/solution_grass.png" alt="Touch grass app">
+                    <img src="/src/assets/images/utils/solution_grass.png" alt="Touch grass app">
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.urbandroid.ddc&hl=en&pli=1" target="_blank">
-                    <img src="/src/assets/images/solution_detox.png" alt="Detox app">
+                    <img src="/src/assets/images/utils/solution_detox.png" alt="Detox app">
                 </a>
                 <a href="https://one-sec.app/" target="_blank">
-                    <img src="/src/assets/images/solution_sec.png" alt="one sec app">
+                    <img src="/src/assets/images/utils/solution_sec.png" alt="one sec app">
                 </a>
             </div>
         </div>
@@ -54,16 +60,13 @@
     </div>
     </div>
 
-
-    <!-- INTRO TEXT -->
+    <!----- Story Explain Section ----->
     <section class="intro-text">
         <h1>Each scene marks a step in the descent into addictive scrolling,
             showing how the brain changes along the way and the consequences that follow.</h1>
     </section>
-
-    <!-- SECTIONS -->
     <section class="section">
-        <img src="/src/assets/images/Scene_01_image.png" alt="Scene 1">
+        <img src="/src/assets/images/utils/Scene_01_image.png" alt="Scene 1">
         <div class="section-text">
             <h2>1. Discovery</h2>
             <h4> → First glance</h4>
@@ -73,9 +76,8 @@
                 it plants the seed.</p>
         </div>
     </section>
-
     <section class="section">
-        <img src="/src/assets/images/Scene_02_image.png" alt="Scene 2">
+        <img src="/src/assets/images/utils/Scene_02_image.png" alt="Scene 2">
         <div class="section-text">
             <h2>2. Habit</h2>
             <h4> → Routine Stop</h4>
@@ -84,9 +86,8 @@
                 shaping automatic behaviors and setting the tone for the day.</p>
         </div>
     </section>
-
     <section class="section">
-        <img src="/src/assets/images/Scene_03_image.png" alt="Scene 3">
+        <img src="/src/assets/images/utils/Scene_03_image.png" alt="Scene 3">
         <div class="section-text">
             <h2>3. Distraction</h2>
             <h4> → Lost Focus</h4>
@@ -95,9 +96,8 @@
                 The brain starts to crave quick rewards instead of sustained effort.</p>
         </div>
     </section>
-
     <section class="section">
-        <img src="/src/assets/images/Scene_04_image.png" alt="Scene 4">
+        <img src="/src/assets/images/utils/Scene_04_image.png" alt="Scene 4">
         <div class="section-text">
             <h2>4. Disturbed Sleep</h2>
             <h4> → Night Shift</h4>
@@ -106,9 +106,8 @@
                 This stage shows how the addiction starts to affect physical and mental health directly.</p>
         </div>
     </section>
-
     <section class="section">
-        <img src="/src/assets/images/Scene_05_image.png" alt="Scene 5">
+        <img src="/src/assets/images/utils/Scene_05_image.png" alt="Scene 5">
         <div class="section-text">
             <h2>5. Isolation</h2>
             <h4> → Dead end</h4>
@@ -119,16 +118,15 @@
         </div>
     </section>
 
+    <!----- Footer ----->
     <footer>
         <section class="footer">
             <p>Final work<br>
                 2024-2025
-
             </p>
             <p>Erasmus hogeschool Brussel<br>
                 Multimedia & creative technologie
             </p>
-
         </section>
     </footer>
 

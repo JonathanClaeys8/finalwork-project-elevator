@@ -1,8 +1,9 @@
+// Imports
 import {
     gsap
 } from "gsap";
 
-// POSITIONS RELATIVES IN %
+// Initial Elements Positions (In %)
 const RELATIVE_POSITIONS = {
     floorOptionBtn: {
         x: 0.76,
@@ -14,7 +15,7 @@ const RELATIVE_POSITIONS = {
     }
 };
 
-// UPDATE POSITIONS
+// Responsive Elements
 function updatePositions() {
     const video = document.getElementById("stage-one-first");
     if (!video || !video.videoWidth) return;
@@ -50,12 +51,12 @@ function updatePositions() {
     placeElement(exitElevatorBtn, RELATIVE_POSITIONS.exitElevatorBtn);
 }
 
-// NEXT STAGE
+// Next Page Trigger
 function triggerNextStage() {
     console.log("closing")
     const closeDoors = document.getElementById("close-doors");
 
-    // REMOVE POPUPS
+    // Remove Popups
     gsap.to(".popup-img", {
         opacity: 0,
         scale: 0,
@@ -66,7 +67,6 @@ function triggerNextStage() {
         }
     });
 
-    // CLOSING DOORS
     if (closeDoors) {
         closeDoors.style.display = "block";
         closeDoors.style.position = "fixed";
@@ -78,14 +78,14 @@ function triggerNextStage() {
         closeDoors.style.zIndex = "10000";
         closeDoors.currentTime = 0;
         closeDoors.play();
-
+        // Next Page Trigger
         closeDoors.onended = () => {
             window.location.href = "stagefour.html";
         };
     }
 }
 
-// RANDOM POSITION
+// Random Popup position
 let clickCount = 0;
 const popupContainer = document.getElementById("popup-container");
 
@@ -98,12 +98,11 @@ function getRandomPosition(imgWidth = 80, imgHeight = 80) {
     };
 }
 
-// CREATE POPUP
+// Create Popup
 function createPopup(delay = 0) {
     const img = document.createElement("img");
-    img.src = "/src/assets/images/Scene_03_Popup.png";
+    img.src = "/src/assets/images/utils/Scene_03_Popup.png";
     img.classList.add("popup-img");
-
     const {
         x,
         y
@@ -111,9 +110,7 @@ function createPopup(delay = 0) {
 
     img.style.left = `${x}px`;
     img.style.top = `${y}px`;
-
     popupContainer.appendChild(img);
-
     gsap.fromTo(img, {
         opacity: 0,
         scale: 0
@@ -134,21 +131,17 @@ function createPopup(delay = 0) {
         } else {
             createPopup();
             createPopup();
+            createPopup();
         }
     });
 }
 
-
-
-
-// INIT
 document.addEventListener("DOMContentLoaded", () => {
     const firstVideo = document.getElementById("stage-one-first");
     const secondVideo = document.getElementById("stage-one-second");
     const floorBtn = document.getElementById("floor-option-btn");
     const exitBtn = document.getElementById("exit-elevator");
     const stageTwoScene = document.getElementById("stage-two-scene");
-
     firstVideo.addEventListener("loadedmetadata", updatePositions);
     window.addEventListener("resize", updatePositions);
     updatePositions();
@@ -176,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // EXIT ELEVATOR BUTTON
+    // Exit Elevator Button
     exitBtn.addEventListener("click", () => {
         gsap.to(exitBtn, {
             opacity: 0,
